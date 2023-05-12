@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System
 /* From here on out, every new C# file we make will start with this using System; line.
  * Don't worry too much about what this line does for now. Just know that we'll need it at the top of each file
 */
@@ -69,10 +69,15 @@ class CalculatorApp
         int firstNum = Convert.ToInt32(Console.ReadLine());
         /*
          * This is something new, and if you got this first try, congrats! You may have ran into the problem of trying to figure out how to get an int from a Console.ReadLine()
-         * By default, the Console.ReadLine can only accept a string. So trying to write
+         * By default, the Console.ReadLine can only accept a string. This is a problem for our calculator because if you recall, using the + operator with strings
+         * does concatenation, not addition. So unless you wanted your users' numbers to be smashed together like "1010" you'll need to convert this to an Int. But, trying to write
          * int firstNum = Console.ReadLine() 
-         * is impossible. The creators of this language knew that people weren't going to only try to input a string, so they made the Convert.ToInt32 function.
-         * This function takes a string, and if it's possible, convert that to an Int. 
+         * is impossible. The creators of this language knew that people weren't going to just need strings from input, so they made the Convert.ToInt32 function.
+         * This function takes a string, and if it's possible, convert that to an Int. The "32" part of this just means it is an int that takes up 32 bits of RAM (or 4 bytes). 
+         * 
+         * Also, you may have noticed that I'm using Console.Write() here instead of WriteLine. This is just a stylistic choice I made. Console.WriteLine() will move the users cursor
+         * to the next line after the string between () gets written. Console.Write() does not move the cursor to the next line. Try to use both Console.WriteLine() and Console.Write() to 
+         * see the difference.
         */
         Console.Write("Enter second number: ");
         int secondNum = Convert.ToInt32(Console.ReadLine());
@@ -80,6 +85,42 @@ class CalculatorApp
         Console.Write("Enter your operation. Type + for addition, - for subtraction, * or x for multiplication, and / for division.");
         string operation = Console.ReadLine();
 
+        /*
+         * Up next we have if statements. If statements check whether a condition is True or False, and executes or doesn't execute the code based on what it finds.
+         * For instance, we know that 1 + 1 = 2 is a true statement. So, if you put If (1 + 1 = 2) in a metaphorical If-statement, the code between the {} would run.
+         * However, I said that was metaphorical specifically because we wouldn't use "=" in If statements. In coding, there are many key words and symbols that have a specific function.
+         * We've already seen quite a lot like int, string, class, void, and even the {} and ;. The = symbol is also a special symbol used for making variables. In math, the equals sign is used
+         * to compare two things. The math statement 1 + 1 = 2 is comparing the left side of the equals symbol to the right side. If the left side and the right side are the same after the calculation,
+         * we say that it equals that thing and that the left side equalling the right side is true. In coding, the = symbol does not compare things, it is known as the assignment operator. 
+         * The assignment operator in coding tells the computer to take the information on the right side of the equals sign, and store it in the name on the left side of the equals sign. If you want
+         * to compare two things the way we do in math, we use the == operator. So, based on our earlier example, it would actually be written like 
+         * 
+         * if (1 + 1 == 2) 
+         * { 
+         *      do some code 
+         * }
+         * 
+         * But in our case we don't have just one condition. We need to check multiple conditions, because there are 4 operations the user can do in math. So, how do we check multiple conditions? Well,
+         * the most simple version of this is using the Else keyword. Else immediately follows the If statement, and tells the computer that if the condition in the if() part is false, always do this
+         * instead. You can think of this as a kind of default code that should be ran. Here's an example
+         * 
+         * if (operation == "+")
+         * {
+         *      Console.WriteLine(firstNum + secondNum);
+         * }
+         * else 
+         * {
+         *      Console.WriteLine("I only know how to do addition right now.");
+         * }
+         * 
+         * This If-Else statement says if the operator the user inputs is a plus symbol, then write the two numbers added together in the console. But, if they write anything other than a plus symbol,
+         * write "I only know how to do addition right now." to the console. In a lot of cases, all you need is the If-Else. In our case, we need to check 4 conditions. 
+         * 
+         * else if is a key word in C# that basically just adds another condition to check for. This is perfect for our calculator. The way an If-Else If works is the same as the rest of code, meaning
+         * it is a line by line process, from top to bottom. Our computer will go line by line and check the topmost condition. In what I have written, the condition that is being checked first is if the 
+         * operation variable is a plus symbol. If that is false, then it'll check the next condition, and so on until it finds one that is true. If none of them are true, it will execute the code in 
+         * the else statement. 
+        */
         if (operation == "+")
         {
             Console.WriteLine(firstNum + secondNum);
