@@ -130,6 +130,12 @@ class CalculatorApp
             Console.WriteLine(firstNum - secondNum);
         }
         else if (operation == "*" || operation == "x")
+        /*
+         * This condition has something you have not seen before. The symbol || is the way we say OR in C#. By this, I mean you can check if two conditions are true. The way an OR keyword functions is by
+         * checking both sides of the || symbol, and if either one of them are true the code below will execute. When you use ||, only ONE condition needs to be met for the code to execute. If you needed
+         * to check if BOTH conditions are true, you would use the && symbol. For our case, we want to accept the user entering * or x to mean multiplication, so if the operation variable has either 
+         * of those strings stored, then our code will write the product in the console.
+        */ 
         {
             Console.WriteLine(firstNum * secondNum);
         }
@@ -141,5 +147,6 @@ class CalculatorApp
         {
             Console.WriteLine("I don't understand that operation! Please run again and enter a different operation.");
         }
+        // It's worth noting that you don't need an else or else if to have a functioning if statement. You can have just one if(){} and have functioning code, depending on your application. 
     }
 }
