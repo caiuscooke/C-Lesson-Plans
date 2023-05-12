@@ -29,5 +29,16 @@ Console.WriteLine("Hello " + name + "!");
  * "Hello "
  * "World"
  * Otherwise you'll just be smushing the words together. Now then, let's move on to the next project. We're going to make a simple calculator, and introduce
- * a few things that may seem like a lot at first, but you'll surely get the hang of soon.
+ * a few things that may seem like a lot at first, but you'll surely get the hang of soon. 
+ * 
+ * Earlier, we had discussed that a string can also be a number such as 
+ * string number1 = "10"
+ * What do you think would happen if we tried to add two strings storing numbers between the quotes? Let's try it out!
+*/
+
+Console.WriteLine("10" + "10");
+
+/*
+ * If you expected it to write "1010" to the console, congrats! You were correct. This is because C# doesn't know that this is a number when it's between quotes. 
+ * C# will treat this string the same way it did with strings like "Hello" and "World". This is important to keep in mind, especially with our next lesson.
 */
