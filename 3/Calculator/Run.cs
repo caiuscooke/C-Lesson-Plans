@@ -1,4 +1,4 @@
-﻿using System
+﻿using System;
 /* From here on out, every new C# file we make will start with this using System; line.
  * Don't worry too much about what this line does for now. Just know that we'll need it at the top of each file
 */
